@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- Add debug step for Docker Hub credentials check by @vishn9893
 - Add async query parameter support by @nicholas-fedor
 - Add link to reference linked containers advanced features documentation by @nicholas-fedor
 - Add image cooldown supply-chain defense mechanism by @nicholas-fedor
@@ -235,6 +236,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- Implement nightly tag creation in build.yaml by @vishn9893
 - Replace curly apostrophes with straight apostrophes by @nicholas-fedor
 - Migrate from docker/docker to moby/moby split packages for v29 compatibility by @nicholas-fedor
 - Modernize GoReleaser config and GitHub Actions workflows by @nicholas-fedor
@@ -2340,6 +2342,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- Remove '--snapshot' from build command by @vishn9893
 - Remove go lint step in favor of golangci-lint --fix by @nicholas-fedor
 - Remove default commit signing by @nicholas-fedor
 - Remove unnecessary SBOM upload step by @nicholas-fedor
@@ -2382,7 +2385,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### New Contributors
 
-- @github-actions[bot] made their first contribution
+- @vishn9893 made their first contribution
+- @github-actions[bot] made their first contribution in [#2](https://github.com/vishn9893/watchtower/pull/2)
 - @renovate[bot] made their first contribution
 - @nicholas-fedor made their first contribution
 - @stepsecurity-app[bot] made their first contribution
