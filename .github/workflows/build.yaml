@@ -125,7 +125,7 @@ jobs:
           args: >-
             release
             --config build/goreleaser/${{ inputs.BUILD_TYPE }}.yaml
-            ${{ inputs.BUILD_TYPE == 'nightly' && '--skip=validate,archive' || '' }}
+            ${{ inputs.BUILD_TYPE == 'nightly' && '--skip=validate,archive,docker' || '' }}
             --clean
             ${{ inputs.DRY_RUN && '--skip=publish --snapshot' || '' }}
 
