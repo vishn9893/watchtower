@@ -17,6 +17,7 @@ on:
         required: false
         default: false
         type: boolean
+        
     secrets:
       DOCKERHUB_USERNAME:
         required: true
@@ -117,6 +118,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DRY_RUN: ${{ inputs.DRY_RUN }}
+          OWNER: ${{ github.repository_owner }}
         with:
           distribution: goreleaser
           version: "~> v2"
