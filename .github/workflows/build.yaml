@@ -125,6 +125,7 @@ jobs:
             --config build/goreleaser/${{ inputs.BUILD_TYPE }}.yaml
             ${{ inputs.BUILD_TYPE == 'nightly' && '--skip=validate,archive' || '' }}
             --clean
+            --snapshot
             ${{ inputs.DRY_RUN && '--skip=publish' || '' }}
 
       - name: Upload Binary SBOMs
