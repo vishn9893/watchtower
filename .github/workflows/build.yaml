@@ -111,15 +111,6 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Create Nightly Tag
-        if: ${{ inputs.BUILD_TYPE == 'nightly' && !inputs.DRY_RUN }}
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          TAG="nightly-$(date +'%Y%m%d')"
-          git tag "$TAG"
-          echo "TAG=$TAG" >> $GITHUB_ENV
       
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@5daf1e915a5f0af01ddbcd89a43b8061ff4f1a89 # v7.2.2
