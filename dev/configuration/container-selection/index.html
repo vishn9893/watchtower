@@ -14,17 +14,17 @@
         <link rel="canonical" href="https://watchtower.nickfedor.com/dev/configuration/container-selection/">
       
       
-        <link rel="prev" href="../arguments/">
+        <link rel="prev" href="../docker-connection/">
       
       
-        <link rel="next" href="../private-registries/">
+        <link rel="next" href="../scheduling/">
       
       
         
       
       
       <link rel="icon" href="../../assets/media/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -32,7 +32,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -290,7 +290,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../getting-started/overview/" class="md-tabs__link">
+        <a href="../../getting-started/introduction/" class="md-tabs__link">
           
   
   
@@ -312,7 +312,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../arguments/" class="md-tabs__link">
+        <a href="../introduction/" class="md-tabs__link">
           
   
   
@@ -332,7 +332,7 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../notifications/overview/" class="md-tabs__link">
+        <a href="../../notifications/introduction/" class="md-tabs__link">
           
   
   
@@ -352,7 +352,27 @@
     
     
       <li class="md-tabs__item">
-        <a href="../../advanced-features/http-api/" class="md-tabs__link">
+        <a href="../../http-api/overview/" class="md-tabs__link">
+          
+  
+  
+  API
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../advanced-features/ephemeral-self-updates/" class="md-tabs__link">
           
   
   
@@ -529,14 +549,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../getting-started/overview/" class="md-nav__link">
+      <a href="../../getting-started/introduction/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Overview
+    Introduction
   
 
     
@@ -593,6 +613,62 @@
     
   
     Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/container-selection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Container Selection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/docker-secrets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Secrets
   
 
     
@@ -705,14 +781,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../arguments/" class="md-nav__link">
+      <a href="../introduction/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Arguments
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker-connection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker Connection
   
 
     
@@ -793,10 +897,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#full_exclude" class="md-nav__link">
+  <a href="#include_stopped_containers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Full Exclude
+        Include Stopped Containers
       
     </span>
   </a>
@@ -804,10 +908,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#monitor_only" class="md-nav__link">
+  <a href="#revive_stopped_containers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Monitor Only
+        Revive Stopped Containers
       
     </span>
   </a>
@@ -815,41 +919,112 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#regex_pattern_matching" class="md-nav__link">
+  <a href="#include_restarting_containers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Regex Pattern Matching
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Regex Pattern Matching">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#syntax" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Syntax
+        Include Restarting Containers
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#enable_label_filter" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Examples
+        Enable Label Filter
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#disable_specific_containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disable Specific Containers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable_containers_by_label" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable Containers by Label
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disable_containers_by_label" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disable Containers by Label
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitor_specific_images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitor Specific Images
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skip_specific_images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skip Specific Images
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scope_filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scope Filter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#label_precedence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Label Precedence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use_docker_compose_depends-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Docker Compose Depends-On
+      
+    </span>
+  </a>
   
 </li>
       
@@ -869,14 +1044,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../private-registries/" class="md-nav__link">
+      <a href="../scheduling/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Private Registries
+    Scheduling
   
 
     
@@ -897,14 +1072,182 @@
   
   
     <li class="md-nav__item">
-      <a href="../secure-connections/" class="md-nav__link">
+      <a href="../registry-and-authentication/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Secure Connections
+    Registry and Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../image-cooldown/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Image Cooldown
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../update-behavior/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Update Behavior
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lifecycle-hooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lifecycle Hooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logging-and-output/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Logging and Output
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../http-api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    HTTP API
   
 
     
@@ -986,14 +1329,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../notifications/overview/" class="md-nav__link">
+      <a href="../../notifications/introduction/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Configuration
+    Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notifications/general-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General Settings
   
 
     
@@ -1063,6 +1434,326 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deprecations
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Deprecations
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notifications/deprecations/deprecation-notice/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deprecation Notice
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notifications/deprecations/migration-tool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migration Tool
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notifications/deprecations/email/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Email
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notifications/deprecations/gotify/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gotify
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notifications/deprecations/slack/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slack
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notifications/deprecations/teams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Teams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_6" id="__nav_5_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../notifications/guides/signal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Signal
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1102,7 +1793,7 @@
   <span class="md-ellipsis">
     
   
-    Advanced Features
+    API
   
 
     
@@ -1115,6 +1806,639 @@
         
         <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http-api/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Configuration
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http-api/configuration/host-and-port/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Host and Port
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http-api/configuration/authentication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http-api/configuration/tls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TLS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Endpoints
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Endpoints
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http-api/endpoints/check/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Check
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http-api/endpoints/config/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Config
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http-api/endpoints/container-details/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Container Details
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http-api/endpoints/containers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Containers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http-api/endpoints/events/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Events
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http-api/endpoints/health/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Health
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http-api/endpoints/history/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    History
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http-api/endpoints/images/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Images
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http-api/endpoints/metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metrics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http-api/endpoints/status/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Status
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http-api/endpoints/swagger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Swagger UI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../http-api/endpoints/update/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Update
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1131,14 +2455,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced-features/http-api/" class="md-nav__link">
+      <a href="../../advanced-features/ephemeral-self-updates/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    HTTP API
+    Ephemeral Self-Updates
   
 
     
@@ -1167,6 +2491,34 @@
     
   
     Image Cooldown
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced-features/disk-usage-monitor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disk Usage Monitor
   
 
     
@@ -1243,14 +2595,42 @@
   
   
     <li class="md-nav__item">
-      <a href="../../advanced-features/metrics-api/" class="md-nav__link">
+      <a href="../../advanced-features/private-registries/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Metrics API
+    Private Registries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../advanced-features/registry-mirrors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Registry Mirrors
   
 
     
@@ -1327,6 +2707,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../advanced-features/secure-connections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Connections
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../advanced-features/stop-signals/" class="md-nav__link">
         
   
@@ -1382,10 +2790,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#full_exclude" class="md-nav__link">
+  <a href="#include_stopped_containers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Full Exclude
+        Include Stopped Containers
       
     </span>
   </a>
@@ -1393,10 +2801,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#monitor_only" class="md-nav__link">
+  <a href="#revive_stopped_containers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Monitor Only
+        Revive Stopped Containers
       
     </span>
   </a>
@@ -1404,41 +2812,112 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#regex_pattern_matching" class="md-nav__link">
+  <a href="#include_restarting_containers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Regex Pattern Matching
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Regex Pattern Matching">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#syntax" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Syntax
+        Include Restarting Containers
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#enable_label_filter" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Examples
+        Enable Label Filter
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#disable_specific_containers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disable Specific Containers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable_containers_by_label" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enable Containers by Label
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#disable_containers_by_label" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disable Containers by Label
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#monitor_specific_images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monitor Specific Images
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skip_specific_images" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Skip Specific Images
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scope_filter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scope Filter
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#label_precedence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Label Precedence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use_docker_compose_depends-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Use Docker Compose Depends-On
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1463,128 +2942,158 @@
 
 
 <h1 id="container_selection">Container Selection<a class="headerlink" href="#container_selection" title="Permanent link">&para;</a></h1>
-<p>By default, Watchtower will watch all containers. However, sometimes only some containers should be updated.</p>
-<p>There are two options:</p>
-<ul>
-<li><strong>Fully exclude</strong>: You can choose to exclude containers entirely from being watched by Watchtower.</li>
-<li><strong>Monitor only</strong>: In this mode, Watchtower checks for container updates, sends notifications and invokes the <a href="../../advanced-features/lifecycle-hooks/">pre-check/post-check hooks</a> on the containers but does <strong>not</strong> perform the update.</li>
-</ul>
-<h2 id="full_exclude">Full Exclude<a class="headerlink" href="#full_exclude" title="Permanent link">&para;</a></h2>
-<p>If you need to exclude some containers, set the <em>com.centurylinklabs.watchtower.enable</em> label to <code>false</code>.
-For clarity this should be set <strong>on the container(s)</strong> you wish to be ignored, this is not set on Watchtower.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">dockerfile</label><label for="__tabbed_1_2">docker run</label><label for="__tabbed_1_3">docker-compose</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">LABEL</span><span class="w"> </span>com.centurylinklabs.watchtower.enable<span class="o">=</span><span class="s2">&quot;false&quot;</span>
+<h2 id="include_stopped_containers">Include Stopped Containers<a class="headerlink" href="#include_stopped_containers" title="Permanent link">&para;</a></h2>
+<p>Includes created and exited containers in monitoring and updates.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>            Argument: --include-stopped, -S
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Environment Variable: WATCHTOWER_INCLUDE_STOPPED
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>                Type: Boolean
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>             Default: false
 </code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--label<span class="o">=</span>com.centurylinklabs.watchtower.enable<span class="o">=</span><span class="nb">false</span><span class="w"> </span>someimage
+<h2 id="revive_stopped_containers">Revive Stopped Containers<a class="headerlink" href="#revive_stopped_containers" title="Permanent link">&para;</a></h2>
+<p>Restarts stopped containers after their images are updated.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>            Argument: --revive-stopped
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>Environment Variable: WATCHTOWER_REVIVE_STOPPED
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>                Type: Boolean
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>             Default: false
 </code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">services</span><span class="p">:</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">someimage</span><span class="p">:</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">someimage</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">labels</span><span class="p">:</span>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;com.centurylinklabs.watchtower.enable=false&quot;</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-<p>If instead you want to <a href="../arguments/#enable_label_filter">only include containers with the enable label</a>, pass the <code>--label-enable</code> flag or the <code>WATCHTOWER_LABEL_ENABLE</code> environment variable on startup for Watchtower and set the <em>com.centurylinklabs.watchtower.enable</em> label with a value of <code>true</code> on the containers you want to watch.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">dockerfile</label><label for="__tabbed_2_2">docker run</label><label for="__tabbed_2_3">docker-compose</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">LABEL</span><span class="w"> </span>com.centurylinklabs.watchtower.enable<span class="o">=</span><span class="s2">&quot;true&quot;</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--label<span class="o">=</span>com.centurylinklabs.watchtower.enable<span class="o">=</span><span class="nb">true</span><span class="w"> </span>someimage
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nt">services</span><span class="p">:</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">someimage</span><span class="p">:</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">someimage</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">    </span><span class="nt">labels</span><span class="p">:</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;com.centurylinklabs.watchtower.enable=true&quot;</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-<p>If you wish to create a monitoring scope, you will need to <a href="../../advanced-features/running-multiple-instances/">run multiple instances and set a scope for each of them</a>.</p>
-<p>Watchtower filters running containers by testing them against each configured criteria.
-A container is monitored if all criteria are met.</p>
-<p>For example:</p>
-<ul>
-<li>If a container's name is on the monitoring name list (not empty <code>--name</code> argument), but it is not enabled (<em>centurylinklabs.watchtower.enable=false</em>), then it won't be monitored.</li>
-<li>If a container's name is not on the monitoring name list (not empty <code>--name</code> argument), even if it is enabled (<em>centurylinklabs.watchtower.enable=true</em> and <code>--label-enable</code> flag is set), then it won't be monitored.</li>
-</ul>
-<h2 id="monitor_only">Monitor Only<a class="headerlink" href="#monitor_only" title="Permanent link">&para;</a></h2>
-<p>Individual containers can be marked to only be monitored and will not be updated by Watchtower.</p>
-<p>To do so, set the <em>com.centurylinklabs.watchtower.monitor-only</em> label to <code>true</code> on that container:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">LABEL</span><span class="w"> </span>com.centurylinklabs.watchtower.monitor-only<span class="o">=</span><span class="s2">&quot;true&quot;</span>
-</code></pre></div>
-<p>Or, it can be specified as part of the <code>docker run</code> command line:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--label<span class="o">=</span>com.centurylinklabs.watchtower.monitor-only<span class="o">=</span><span class="nb">true</span><span class="w"> </span>someimage
-</code></pre></div>
-<p>When the label is specified on a container, Watchtower treats that container exactly as if <a href="../arguments/#monitor_only"><code>WATCHTOWER_MONITOR_ONLY</code></a> was set, but the effect is limited to the individual container.</p>
-<h2 id="regex_pattern_matching">Regex Pattern Matching<a class="headerlink" href="#regex_pattern_matching" title="Permanent link">&para;</a></h2>
-<p>Both container inclusion (positional arguments) and exclusion  (<a href="../arguments/#disable_specific_containers"><code>--disable-containers</code>/<code>WATCHTOWER_DISABLE_CONTAINERS</code></a>) support regular expression patterns for matching container names.</p>
 <div class="admonition note">
-<p class="admonition-title">Patterns are anchored to match the <strong>full container name</strong></p>
-<p>Use <code>.*</code> (period + asterisk) for wildcards instead of just an <code>*</code> (asterisk)</p>
+<p class="admonition-title">Note</p>
+<p>Requires <code>--include-stopped</code>.</p>
 </div>
-<h3 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Patterns use <a href="https://pkg.go.dev/regexp/syntax">Go regex syntax</a></li>
-<li>Patterns are anchored to match the <strong>entire</strong> container name</li>
-<li>Invalid regex patterns fall back to literal string matching</li>
-</ul>
-<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
-<table>
-<thead>
-<tr>
-<th>Pattern</th>
-<th>Matches</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>container.*</code></td>
-<td>"container1", "container-abc", "mycontainer"</td>
-</tr>
-<tr>
-<td><code>.*-dev</code></td>
-<td>"web-dev", "api-dev", "db-dev"</td>
-</tr>
-<tr>
-<td><code>.*</code></td>
-<td>Any container name</td>
-</tr>
-<tr>
-<td><code>nginx|redis</code></td>
-<td>Either "nginx" or "redis"</td>
-</tr>
-<tr>
-<td><code>^web-.*$</code></td>
-<td>All containers starting with "web-"</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li>Exclude all containers starting with a specific prefix:</li>
-</ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-e<span class="w"> </span><span class="nv">WATCHTOWER_DISABLE_CONTAINERS</span><span class="o">=</span><span class="s2">&quot;web-.*&quot;</span><span class="w"> </span>nickfedor/watchtower
+<h2 id="include_restarting_containers">Include Restarting Containers<a class="headerlink" href="#include_restarting_containers" title="Permanent link">&para;</a></h2>
+<p>Includes containers in the restarting state for monitoring and updates.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>            Argument: --include-restarting
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>Environment Variable: WATCHTOWER_INCLUDE_RESTARTING
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>                Type: Boolean
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>             Default: false
+</code></pre></div>
+<h2 id="enable_label_filter">Enable Label Filter<a class="headerlink" href="#enable_label_filter" title="Permanent link">&para;</a></h2>
+<p>Restricts monitoring to containers with the <code>com.centurylinklabs.watchtower.enable</code> label set to <code>true</code> when the <code>--label-enable</code> flag is specified.
+Without <code>--label-enable</code>, containers with this label set to <code>false</code> are excluded, while others are monitored by default.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>            Argument: --label-enable
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>Environment Variable: WATCHTOWER_LABEL_ENABLE
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>                Type: Boolean
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>             Default: false
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When <code>--label-enable</code> is unset, containers without the <code>com.centurylinklabs.watchtower.enable</code> label or with it set to <code>true</code> are monitored, and those with <code>false</code> are excluded.</p>
+<p>When <code>--label-enable</code> is set, only containers with <code>true</code> are monitored, ignoring those with <code>false</code> or no label.</p>
+</div>
+<h2 id="disable_specific_containers">Disable Specific Containers<a class="headerlink" href="#disable_specific_containers" title="Permanent link">&para;</a></h2>
+<p>Excludes containers by container name from monitoring, even if they have the enable label set to <code>true</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>            Argument: --disable-containers, -x
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>Environment Variable: WATCHTOWER_DISABLE_CONTAINERS
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>                Type: Comma- or space-separated string list
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>             Default: None
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Regex patterns are supported. See <a href="../../getting-started/container-selection/#regex_pattern_matching">Regex Pattern Matching</a> for details.</p>
+</div>
+<h2 id="enable_containers_by_label">Enable Containers by Label<a class="headerlink" href="#enable_containers_by_label" title="Permanent link">&para;</a></h2>
+<p>Restricts monitoring to containers that have at least one of the specified label key-value pairs.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>            Argument: --enable-containers-by-label
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Environment Variable: WATCHTOWER_ENABLE_CONTAINERS_BY_LABEL
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>                Type: Comma-separated list of key=value pairs
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>             Default: None
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Values containing commas are not supported.
+Use individual <code>key=value</code> pairs separated by commas.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A label entry with an empty value (<code>key=</code>) performs a presence check: the label must exist on the container with any value.
+A non-empty value requires an exact match.</p>
+</div>
+<h2 id="disable_containers_by_label">Disable Containers by Label<a class="headerlink" href="#disable_containers_by_label" title="Permanent link">&para;</a></h2>
+<p>Excludes containers that have any of the specified label key-value pairs from monitoring.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>            Argument: --disable-containers-by-label
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>Environment Variable: WATCHTOWER_DISABLE_CONTAINERS_BY_LABEL
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>                Type: Comma-separated list of key=value pairs
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>             Default: None
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Values containing commas are not supported. Use individual <code>key=value</code> pairs separated by commas.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A label entry with an empty value (<code>key=</code>) performs a presence check: the label must exist on the container with any value. A non-empty value requires an exact match.</p>
+</div>
+<h2 id="monitor_specific_images">Monitor Specific Images<a class="headerlink" href="#monitor_specific_images" title="Permanent link">&para;</a></h2>
+<p>Restricts monitoring to containers whose image name matches one of the supplied image name patterns, even if other selection criteria would include them.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>            Argument: --monitor-image-names
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Environment Variable: WATCHTOWER_MONITOR_IMAGE_NAMES
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>                Type: Comma or space-separated string list
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>             Default: None
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Image name patterns include the tag (for example <code>nginx:latest</code>).
+Regex patterns are supported and anchored to the <strong>full</strong> image name.
+See <a href="../../getting-started/container-selection/#regex_pattern_matching">Regex Pattern Matching</a>
+for details.</p>
+</div>
+<h2 id="skip_specific_images">Skip Specific Images<a class="headerlink" href="#skip_specific_images" title="Permanent link">&para;</a></h2>
+<p>Excludes containers by image name pattern from monitoring, even if they have the enable label set to <code>true</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>            Argument: --skip-image-names
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Environment Variable: WATCHTOWER_SKIP_IMAGE_NAMES
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>                Type: Comma or space-separated string list
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>             Default: None
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Image name patterns include the tag (for example <code>nginx:latest</code>).
+Regex patterns are supported and anchored to the <strong>full</strong> image name.
+See <a href="../../getting-started/container-selection/#regex_pattern_matching">Regex Pattern Matching</a>
+for details.</p>
+</div>
+<h2 id="scope_filter">Scope Filter<a class="headerlink" href="#scope_filter" title="Permanent link">&para;</a></h2>
+<p>Monitors containers with a <code>com.centurylinklabs.watchtower.scope</code> label matching the specified value, enabling multiple Watchtower instances.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>            Argument: --scope
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>Environment Variable: WATCHTOWER_SCOPE
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>                Type: String
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>             Default: None
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Set to <code>none</code> to ignore scoped containers.
+Without this flag, Watchtower monitors all containers regardless of scope.</p>
+<p>For self-updates, ensure all Watchtower containers share the same <code>com.centurylinklabs.watchtower.scope</code> label to guarantee cleanup of renamed containers and old images.
+Mismatched labels may prevent detection, leaving resources running.</p>
+<p>See <a href="../../advanced-features/running-multiple-instances/">Running Multiple Instances</a>.</p>
+</div>
+<h2 id="label_precedence">Label Precedence<a class="headerlink" href="#label_precedence" title="Permanent link">&para;</a></h2>
+<p>Allows container labels (e.g., <code>com.centurylinklabs.watchtower.monitor-only</code>, <code>com.centurylinklabs.watchtower.no-pull</code>) to override corresponding flags.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>            Argument: --label-take-precedence
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Environment Variable: WATCHTOWER_LABEL_TAKE_PRECEDENCE
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>                Type: Boolean
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>             Default: false
+</code></pre></div>
+<h2 id="use_docker_compose_depends-on">Use Docker Compose Depends-On<a class="headerlink" href="#use_docker_compose_depends-on" title="Permanent link">&para;</a></h2>
+<p>Enables or disables processing of the Docker Compose <a href="https://docs.docker.com/reference/compose-file/services/#depends_on" rel="noopener noreferrer" target="_blank"><code>depends_on</code></a> configuration for determining container update order.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>            Argument: --use-compose-depends-on
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>Environment Variable: WATCHTOWER_USE_COMPOSE_DEPENDS_ON
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>                Type: Boolean
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>             Default: true
 </code></pre></div>
 <ul>
-<li>Include only containers matching a pattern:</li>
+<li>By default, Watchtower automatically detects and respects Docker Compose service dependencies.</li>
+<li>When this feature is disabled, only the Watchtower <code>depends-on</code> label, Docker links, and network mode are used.</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>watchtower<span class="w"> </span><span class="s2">&quot;db-.*&quot;</span><span class="w"> </span><span class="s2">&quot;cache-.*&quot;</span>
-</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Disabling this is useful when you want to prevent Watchtower from automatically using Docker Compose dependencies but still use explicit Watchtower labels or Docker links for ordering.
+For more information on Watchtower's handling of linked containers, please reference the <a href="../../advanced-features/linked-containers/">Linked Containers documentation</a>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Rolling restarts are not supported when any container has linked dependencies (including Docker Compose <code>depends_on</code>, Watchtower <code>depends-on</code> labels, Docker links, or network mode dependencies).
+When <a href="../update-behavior/#rolling_restart"><code>rolling-restart</code></a> is enabled, the <a href="./#use_docker_compose_depends-on"><code>use-compose-depends-on</code></a> configuration option controls whether Docker Compose <code>depends_on</code> labels are included in the dependency validation check.</p>
+</div>
 
 
 
@@ -1607,7 +3116,7 @@ A container is monitored if all criteria are met.</p>
     <span class="md-icon" title="Last update">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
     </span>
-    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="March 10, 2026 13:28:23 UTC"><span class="timeago" datetime="2026-03-10T13:28:23+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="March 10, 2026 13:28:23 UTC">2026-03-10</span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-timeago" title="July 18, 2026 23:08:33 UTC"><span class="timeago" datetime="2026-07-18T23:08:33+00:00" locale="en"></span></span><span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date" title="July 18, 2026 23:08:33 UTC">2026-07-18</span>
   </span>
 
     
@@ -1692,7 +3201,7 @@ A container is monitored if all criteria are met.</p>
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "toc.follow", "navigation.top", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.tooltips", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"alias": true, "default": ["latest", "dev"], "provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="../../js/timeago.min.js"></script>
       
